@@ -6,10 +6,11 @@ import {
   Plus, Moon, Sun, Search, Trash2, Download, Receipt, Wallet,
   CalendarDays, ListOrdered, Crown, Sparkles, UtensilsCrossed,
   Bus, ShoppingBag, Clapperboard, FileText, HeartPulse, GraduationCap, CircleDot,
+  Zap, Lightbulb,
 } from "lucide-react";
 
 /* ---------------------------------------------------------
-   AI Logic (utils/categorizer.js equivalent)
+   Categorization Engine (utils/categorizer.js equivalent)
 --------------------------------------------------------- */
 const CATEGORY_KEYWORDS = {
   Food: ["pizza", "burger", "dominos", "domino's", "kfc", "mcdonald", "hotel", "restaurant", "swiggy", "zomato", "cafe", "biryani"],
@@ -310,11 +311,11 @@ export default function App() {
 
           {preview && (
             <div style={{ marginTop: 12, display: "flex", alignItems: "center", gap: 8, fontSize: 13 }}>
-              <Sparkles size={14} color={theme.accent} />
-              <span style={{ color: theme.inkSoft }}>AI predicts</span>
+              <Zap size={14} color={theme.accent} />
+              <span style={{ color: theme.inkSoft }}>Predicted category:</span>
               <CategoryPill category={preview.category} theme={theme} />
               <span style={{ color: theme.inkSoft, fontFamily: "'JetBrains Mono', monospace" }}>
-                {preview.confidence}% confidence
+                {preview.confidence}% match confidence
               </span>
             </div>
           )}
@@ -376,7 +377,7 @@ export default function App() {
           </div>
 
           <div style={{ background: theme.card, border: `1px solid ${theme.border}`, borderRadius: 14, padding: 18 }}>
-            <SectionLabel theme={theme}>AI insights</SectionLabel>
+            <SectionLabel theme={theme}>Smart Insights</SectionLabel>
             {insights.length === 0 ? (
               <div style={{ color: theme.inkSoft, fontSize: 13.5, padding: "30px 0", textAlign: "center" }}>
                 Insights appear once you've logged a few expenses.
@@ -391,7 +392,7 @@ export default function App() {
                       background: theme.cardAlt, borderRadius: 9, padding: "9px 11px",
                     }}
                   >
-                    <Sparkles size={14} color={theme.accent} style={{ flexShrink: 0, marginTop: 2 }} />
+                    <Lightbulb size={14} color={theme.accent} style={{ flexShrink: 0, marginTop: 2 }} />
                     <span>{line}</span>
                   </li>
                 ))}

@@ -1,6 +1,6 @@
-# 📊 ExpenseAI — AI-Powered Expense Tracker
+# 📊 ExpenseAI — Smart Expense Tracker
 
-**ExpenseAI** is a premium, self-contained, AI-powered expense tracking dashboard that predicts expense categories in real-time as you type, visualizes spending breakdowns, generates data-driven AI insights, and supports persistent storage.
+**ExpenseAI** is a premium, self-contained, smart expense tracking dashboard that predicts expense categories in real-time as you type, visualizes spending breakdowns, generates data-driven smart insights, and supports persistent storage.
 
 Built for the **Precision Pro Mini Hackathon Series** by **Hare Prasath A P** & **Jagan V N** of team **Precision Pro's**.
 
@@ -15,8 +15,8 @@ Follow this structured flow to showcase the full capabilities of **ExpenseAI** d
 2. Open the local URL in your browser: `http://localhost:5173/`.
 3. Notice the premium glassmorphic dark mode layout loading instantly.
 
-### 2. Testing Live AI Categorization (The "Wow" Factor)
-Type the following descriptions in the input box and observe the **live AI prediction pill** and confidence score updating in real-time:
+### 2. Testing Live Categorization (The "Wow" Factor)
+Type the following descriptions in the input box and observe the **live prediction pill** and confidence score updating in real-time:
 * **"Pizza from Domino's"** 🍕 $\rightarrow$ Predicts **Food** with high confidence.
 * **"Uber ride to the office"** 🚗 $\rightarrow$ Predicts **Transport** with high confidence.
 * **"Bought shoes from Amazon"** 🛍️ $\rightarrow$ Predicts **Shopping** with high confidence.
@@ -32,8 +32,8 @@ Type the following descriptions in the input box and observe the **live AI predi
    * **Top Category**: Highlights your highest spending category.
 3. Observe the **Interactive Pie Chart** rendering colored donut slices with tooltips showing rupee values on hover.
 
-### 4. Reading AI-Generated Insights
-Once you log 5 or more expenses, the **AI Insights** panel generates up to 4 real-time observations:
+### 4. Reading Smart Insights
+Once you log 5 or more expenses, the **Smart Insights** panel generates up to 4 real-time observations:
 * Displays percentage spent on your highest category (e.g., *"You spent 45% of your tracked total on food"*).
 * Flags low-spending categories (under 8% share).
 * Suggests budget caps if food/dining expenses exceed 35% of total budget.
