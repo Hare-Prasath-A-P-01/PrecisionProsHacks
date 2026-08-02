@@ -1,62 +1,80 @@
-# ExpenseAI
+# 📊 ExpenseAI — AI-Powered Expense Tracker
 
-AI-powered expense tracker with keyword-based category prediction, a live dashboard, and spending insights. Built for the Precision Pro Mini Hackathon Series.
+**ExpenseAI** is a premium, self-contained, AI-powered expense tracking dashboard that predicts expense categories in real-time as you type, visualizes spending breakdowns, generates data-driven AI insights, and supports persistent storage.
 
-## Stack
-React + Vite · Tailwind CSS · Recharts · Lucide React · LocalStorage (no backend)
-
-## Setup
-```bash
-npm install
-npm run dev
-```
-Open the printed localhost URL. `npm run build` produces a production bundle in `dist/`.
-
-## Project structure
-```
-src/
-├── components/
-│   ├── ExpenseForm.jsx     # input + live AI category preview
-│   ├── Dashboard.jsx       # layout composing the widgets below
-│   ├── SummaryCards.jsx    # total / today / transactions / top category
-│   ├── PieChartComp.jsx    # category breakdown donut chart
-│   ├── ExpenseTable.jsx    # searchable, deletable expense list
-│   └── AIInsights.jsx      # generated spending observations
-├── utils/
-│   └── categorizer.js      # keyword-matching "AI" + confidence score
-├── App.jsx                 # state + localStorage persistence
-├── main.jsx
-└── index.css
-```
-
-## How the AI prediction works
-`categorizer.js` matches the description against a keyword dictionary per category (Food, Transport, Shopping, Entertainment, Bills, Health, Education, Others) and returns a confidence percentage — higher for short, clean matches, capped lower for longer/noisier text, 40% fallback for "Others". Edit `CATEGORY_KEYWORDS` to extend coverage.
-
-## Already implemented (MVP + stretch)
-- Expense form with amount + description, live category preview with confidence %
-- Summary cards, pie chart, searchable/deletable table
-- AI insights panel
-- LocalStorage persistence (survives refresh)
-
-## Not yet implemented (from the "if time permits" list)
-- Monthly view / month-over-month comparison
-- Dark mode toggle (the UI ships dark-only by default)
-- CSV export
+Built for the **Precision Pro Mini Hackathon Series** by **Hare Prasath A P** & **Jagan V N** of team **Precision Pro's**.
 
 ---
 
-## Building this in Antigravity
+## 🚀 Live Demo Walkthrough (Step-by-Step)
 
-This repo is already a complete, working app — you can drop it straight into an Antigravity workspace and run `npm install && npm run dev`. If instead you want Antigravity's agent to *build it from scratch* (e.g. for the hackathon demo, or to practice the workflow), give it this as the task prompt:
+Follow this structured flow to showcase the full capabilities of **ExpenseAI** during a demonstration:
 
-> Build ExpenseAI: a React + Vite + Tailwind expense tracker. Use `localStorage` for persistence, `recharts` for a category pie chart, and `lucide-react` for icons. Categorize each expense with a pure keyword-matching function (no external AI call) against these categories: Food, Transport, Shopping, Entertainment, Bills, Health, Education, Others — with a confidence score. Screens: an expense entry form (description + amount) with a live category preview, a dashboard with 4 summary cards (Total Spending, Today's Spending, Transactions, Top Category), a pie chart of spending by category, a searchable/deletable expense table, and an AI Insights panel that generates 2-4 short observations from the data (e.g. "You spent 48% on Food"). Keep components modular: `ExpenseForm`, `Dashboard`, `SummaryCards`, `PieChartComp`, `ExpenseTable`, `AIInsights`, and a `utils/categorizer.js` for the prediction logic.
+### 1. Launching the App
+1. Run `npm install` followed by `npm run dev`.
+2. Open the local URL in your browser: `http://localhost:5173/`.
+3. Notice the premium glassmorphic dark mode layout loading instantly.
 
-Tips for running it agentically in Antigravity:
-1. Point the agent at an empty folder and paste the prompt above as the first task — or, since the code is already written here, just ask it to "review and extend" this repo instead of generating from scratch.
-2. Antigravity works best with one deliverable per task — split follow-ups like "add CSV export" or "add a month filter" into separate turns rather than bundling them into the initial build.
-3. Ask it to run `npm run build` after any change so type/JSX errors surface immediately, same as was verified before this doc was generated.
-4. If you want it to implement the stretch features, feed it the "Not yet implemented" list above one item at a time.
+### 2. Testing Live AI Categorization (The "Wow" Factor)
+Type the following descriptions in the input box and observe the **live AI prediction pill** and confidence score updating in real-time:
+* **"Pizza from Domino's"** 🍕 $\rightarrow$ Predicts **Food** with high confidence.
+* **"Uber ride to the office"** 🚗 $\rightarrow$ Predicts **Transport** with high confidence.
+* **"Bought shoes from Amazon"** 🛍️ $\rightarrow$ Predicts **Shopping** with high confidence.
+* **"Netflix monthly subscription"** 🎬 $\rightarrow$ Predicts **Entertainment** with high confidence.
+* **"Electricity bill payment"** 💡 $\rightarrow$ Predicts **Bills** with high confidence.
 
-## Team split (per the brief)
-- **Member 1 (Frontend & Dashboard):** `ExpenseForm`, `Dashboard`, `SummaryCards`, `PieChartComp`, `ExpenseTable`, responsive polish
-- **Member 2 (Logic & AI):** `categorizer.js`, localStorage wiring in `App.jsx`, `AIInsights`, calculations
+### 3. Populating the Dashboard
+1. Fill in the Amount for each expense and click **Add Expense** (or press Enter).
+2. Observe the **4 Stat Cards** updating dynamically:
+   * **Total Spending**: Auto-calculates cumulative expenses.
+   * **Today's Spending**: Displays only the transactions created today.
+   * **Transactions**: Tracks the total count of logs.
+   * **Top Category**: Highlights your highest spending category.
+3. Observe the **Interactive Pie Chart** rendering colored donut slices with tooltips showing rupee values on hover.
+
+### 4. Reading AI-Generated Insights
+Once you log 5 or more expenses, the **AI Insights** panel generates up to 4 real-time observations:
+* Displays percentage spent on your highest category (e.g., *"You spent 45% of your tracked total on food"*).
+* Flags low-spending categories (under 8% share).
+* Suggests budget caps if food/dining expenses exceed 35% of total budget.
+
+### 5. Advanced Features Demo
+* **Live Search**: Type "Pizza" or "Shopping" in the Search bar to instantly filter the expense table.
+* **CSV Export**: Click **Export CSV** to download a formatted spreadsheet (`expenseai-export.csv`) of all logged transactions.
+* **Dark/Light Mode Toggle**: Click the theme toggle button in the header to switch between Dark (emerald/graphite) and Light (ivory/slate) modes.
+* **Persistence**: Refresh the page—all expenses remain intact, powered by safe local storage.
+
+---
+
+## 🛠️ Technology Stack & Core Packages
+* **Frontend**: React (Hooks, Context, Memoization)
+* **Styling**: Vanilla CSS (Tailwind CSS configuration ready)
+* **Visualizations**: [Recharts](https://recharts.org/) (Interactive Donut charts)
+* **Icons**: [Lucide React](https://lucide.dev/) (Premium SVG Icons)
+* **Persistence**: LocalStorage with automatic fallback safety wrapper
+
+---
+
+## 📂 Project Structure
+```
+src/
+├── App.jsx            # Primary entrypoint containing state, UI layout, & Storage wrappers
+├── main.jsx           # ReactDOM renderer
+├── index.css          # Core font import, selection colors, & global base styles
+└── utils/
+    └── categorizer.js # Heuristic keyword-matching predictive engine
+```
+
+---
+
+## 🧠 Under the Hood: The Prediction Engine
+The categorization logic is driven by a local, zero-latency heuristic algorithm. It evaluates input text against a mapped dictionary of common commercial keywords, factoring in text density to calculate a dynamic confidence percentage:
+$$\text{Confidence} = \max(70, 97 - (\text{words} - 1) \times 4)$$
+If no keywords match, it falls back to **Others** with a 40% default confidence rating.
+
+---
+
+## 👥 Authors & Team
+Developed with ❤️ for **Precision Pro's** by:
+* **Hare Prasath A P**
+* **Jagan V N**
