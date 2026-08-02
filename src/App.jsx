@@ -360,6 +360,7 @@ export default function App() {
                       <ReTooltip
                         formatter={(v, n) => [rupee(v), n]}
                         contentStyle={{ background: theme.cardAlt, border: `1px solid ${theme.border}`, borderRadius: 8, fontSize: 12.5, color: theme.ink }}
+                        itemStyle={{ color: theme.ink }}
                       />
                     </PieChart>
                   </ResponsiveContainer>
